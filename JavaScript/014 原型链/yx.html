@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="color">
+</body>
+<script>
+  let Gou = function (name, age) {
+    this.name = name
+    this.age = age
+  }
+  Gou.prototype.hello = function () {
+    console.log('hello')
+  }
+  console.log(new Gou());
+  let arr = 'adadsada'.split('')
+  let arrTotal = (...items) => {
+    console.log(items);
+  }
+  arrTotal(arr)
+  let arr1 = [...arr]
+  let arr2 = arr
+  console.log(arr1 === arr, arr2 === arr);
+  let myObj = {}
+  myObj['name'] = 'mmszb'
+</script>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+  <style>
+    h1 {
+      filter: blur(5px);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>666</h1>
+  <button>发射</button>
+  <button>all</button>
+  <button>race</button>
+</body>
+<!-- <script>
+  // resolve 成功时执行
+  // reject  失败时执行
+
+
+  const h1 = document.getElementsByTagName('h1')[0]
+  const btn = document.getElementsByTagName('button')
+
+  let 函数1 = (resolve, reject) => {
+    var timeOut = Math.random() * 2;
+    console.log('set timeout to: ' + timeOut + ' seconds.');
+    setTimeout(function () {
+      if (timeOut < 1) {
+        resolve(timeOut);
+      }
+      else {
+        reject(`err`);
+      }
+    }, timeOut * 1000);
+  }
+
+  let 函数2 = (resolve, reject) => {
+    setTimeout(() => {
+      resolve('······')
+    }, 1000)
+  }
+  btn[0].addEventListener('click', () => {
+    new Promise(函数1).then(res => {
+      console.log(res);
+      h1.innerHTML = res
+    }).catch(err => {
+      console.log(err);
+    })
+  })
+
+
+
+
+  var p1 = new Promise(function (resolve, reject) {
+    setTimeout(resolve, 500, 'P1');
+  });
+  var p2 = new Promise(function (resolve, reject) {
+    setTimeout(resolve, 600, 'P2');
+  });
+  // 同时执行p1和p2，并在它们都完成后执行then:
+
+  btn[1].addEventListener('click', () => {
+    Promise.all([p1, p2]).then(res => {
+      console.log(res); // 获得一个Array: ['P1', 'P2']
+    });
+  })
+  btn[2].addEventListener('click', () => {
+    Promise.race([p1, p2]).then(res => {
+      console.log(res); // P1
+    });
+  })
+
+
+
+  let 男同 = () => {
+    return new Promise((resolve, reject) => {
+      let 功 = 1,
+        受 = 0
+      setTimeout(() => {
+        resolve(功)
+      }, 1000)
+    })
+  }
+
+
+
+  // async 异步  的简写
+  // await async wait 的简写   等待一个异步执行完成
+  async function test() {
+    try {
+      console.log(await 男同());
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
+  test()
+
+
+  let sum = (...items) => {
+    console.log(items);
+  }
+  sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+  // 
+  function* foo(x) {
+    yield x + 1
+    yield x + 2
+    return x + 3
+  }
+
+  // console.log(foo(3).next(), 123);
+
+
+  // 斐波那契数列
+  function* fib(max) {
+    let index = 0,
+      num1 = 0,
+      num2 = 1
+    while (max > index) {
+      yield num1;
+      // 不是必须加分号  因为下行是[]开头 所以这里需要加
+      [num1, num2] = [num2, num1 + num2]
+      index++
+    }
+    return
+  }
+  for (let i of fib(10)) {
+    console.log(i);
+  }
+
+
+  let sum234 = arr => {
+    return arr.reduce((x, y) => x + y)
+  }
+
+  console.log(sum234([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+
+</script> -->
+<script>
+  let promiseAll = (...items) => {
+
+
+
+    return new Promise((resolve, reject) => {
+      let len = 0
+      for (let i of items) {
+        i()
+      }
+    })
+  }
+
+  Function.prototype.myBind = function (thisArg, ...items) {
+    let _this = this
+    let args = [...items]
+    return function () {
+      return _this.apply(thisArg, args)
+    }
+  }
+
+  let obj = {
+    name: 'mmszb',
+    fn: function () {
+      console.log(this.name);
+    }
+  }
+  let obj1 = {
+    name: 'm'
+  }
+  
+</script>
+
+</html>

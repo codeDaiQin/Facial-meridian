@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 1px solid #000;
+      /* display: inline-block; */
+      /* float: left; */
+      overflow: hidden;
+    }
+
+    p {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p></p>
+  </div>
+  <div class="container">
+    <p></p>
+  </div>
+</body>
+<script>
+  let a = 'Hello World!';
+
+  function first() {
+    console.log('1');
+    second();
+    console.log('Again 1');
+  }
+
+  function second() {
+    console.log('2');
+  }
+
+  first();
+  console.log('end');
+
+  // for (let i = 1; i <= 5; i++) {
+  //   setTimeout(function test() {
+  //     console.log(i) // 依次输出：6 6 6 6 6
+  //   }, i * 1000);
+  // }
+  setTimeout(() => {
+    console.log('time 0')
+  }, 0)
+  // let a = tr
+  console.log(typeof true)
+  function Person() { }
+  let a21 = new Person()
+  let kk = a21.__proto__
+  console.log(kk);
+  console.log(kk.constructor.prototype, 55);
+
+  let [arr, obj, fn] = [[], {}, function () { }]
+  arr.a = 1
+  obj.a = 1
+  fn.a = 1
+  console.log(arr.a, obj.a, fn.a);
+  console.log(a);
+</script>
+
+</html>
