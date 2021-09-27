@@ -22,7 +22,7 @@
 
     1. 请求方式为 get post head 
     2. 请求头不超过以下 字段 
-        Accept 
+        Accept
         Accept-Language
         Content-Language
         Last-Event-ID

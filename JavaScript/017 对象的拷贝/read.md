@@ -55,8 +55,7 @@
     user3 = Object.assign({}, user)
     user3.trait.height = 1.6
     console.log(user3, user)  //  1.6  1.6  二级属性是浅拷贝了 
-    user4 = Object.assign(user) 
+    user4 = Object.assign(user)
     user4.name = 'yanzao'
     console.log(user4.name, user.name); // yanzao  yanzao  一级属性是深拷贝
   ```
-
