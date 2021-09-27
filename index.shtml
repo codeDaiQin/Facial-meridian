@@ -6,13 +6,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    div:first-child {
+      float: left;
+    }
+
+    div:nth-child(2) {
+      margin-left: 500px;
+    }
+  </style>
 </head>
 
 <body>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
   <script>
-    let arr = [1, 2, 3]
-    console.log(arr.toLocaleString())
-    console.log(arr.toString())
+    let p = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject('mmszb')
+      }, 1000)
+    })
+
+    const as = async () => {
+      try {
+        console.log(await p)
+      } catch (error) {
+        console.log('erroris :', error)
+      }
+    }
+    as()
   </script>
 </body>
 
