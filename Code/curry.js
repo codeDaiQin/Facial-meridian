@@ -1,16 +1,11 @@
+const curry = (fn, ...args) => args.length >= fn.length ? fn(...args) : (..._args) => curry(fn, ...args, ..._args)
 
-
-const curry = (fn, ...args = []) => {
-  // let _args = args || []
-  let len = _args.length
-  return (...rest) => {
-    let copyArgs = _args.slice(0)
-    copyArgs.push(...rest)
-    if (copyArgs.length < len) return curry.call(this, fn, ...copyArgs)
-    else return fn.apply(this, copyArgs)
-  }
+function add1(x, y, z) {
+  return x + y + z
 }
-
-const sum = (...args) => args.reduce((x, y) => x + y)
-// const curryAdd = ()
-console.log(curry(sum, 1, 2, 3, 4)());
+const add = curry(add1)
+console.log(add(1, 2, 3))
+console.log(add(1)(2)(3))
+console.log(add(1, 2)(3))
+console.log(add(1)(2, 3))
+console.log(add(1))

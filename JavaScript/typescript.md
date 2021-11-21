@@ -26,7 +26,7 @@
 6. any 
   <code>any</code>可以赋值为任意类型
   ```typescript
-    let str:any = "萌萌手抓饼"
+    let str: any = "萌萌手抓饼"
     str = 996
   ```
 7. 类型推论
