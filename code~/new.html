@@ -1,0 +1,13 @@
+<script>
+  function _new(fn, ...args) {
+    if (typeof fn !== 'funciton') throw new Error('constructor must be a function!')
+    // 一个继承自 fn.prototype 的新对象被创建。
+    const obj = Object.create(fn.prototype)
+    // 使用指定的参数调用构造函数 fn，并将 this 绑定到新创建的对象。
+    const res = fn.apply(obj, args)
+    // 由构造函数返回的对象就是 new 表达式的结果。如果构造函数没有显式返回一个对象，则使用步骤1创建的对象
+    if (typeof res === 'object' || typeof res === 'function') return res
+
+    return obj
+  }
+</script>

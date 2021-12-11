@@ -1,0 +1,9 @@
+<script>
+  Function.prototype.call2 = function (content = window, ...args) {
+    const fn = Symbol()
+    content[fn] = this
+    const res = content[fn](...args)
+    delete content[fn]
+    return res
+  }
+</script>
