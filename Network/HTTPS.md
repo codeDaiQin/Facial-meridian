@@ -25,3 +25,6 @@ TLS 指代安全层。 TLS 握手是启动 HTTPS 通信的过程，类似于 TCP
 * 生成会话密钥，该密钥将用于握手结束后的对称加密
 
 ![图片](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/1/5/160c5b10d3f27e00~tplv-t2oaga2asx-watermark.awebp
+
+## 对称加密和 非对称加密
+
