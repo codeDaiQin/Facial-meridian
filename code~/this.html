@@ -1,0 +1,14 @@
+<script>
+  const obj = {
+    a: 'mmszb',
+    get1: () => {
+      console.log(this.a);
+    },
+    get2: function () {
+      console.log(this.a);
+    }
+  }
+
+  obj.get1()
+  obj.get2()
+</script>
