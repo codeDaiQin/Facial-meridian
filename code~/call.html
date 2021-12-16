@@ -9,5 +9,11 @@
 </script>
 
 <script>
-
+  Function.prototype.call3 = function (content, ...args) {
+    const fn = Symbol()
+    content[fn] = this
+    const res = content[fn](...args)
+    delete content[fn]
+    return res
+  }
 </script>

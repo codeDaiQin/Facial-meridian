@@ -1,0 +1,24 @@
+<script>
+  const red = () => void console.log('red')
+  const green = () => void console.log('green')
+  const yellow = () => void console.log('yellow')
+
+  const 亮灯 = (time, light) => new Promise((resolve, reject) => {
+    setTimeout(() => {
+      light === 'red' && red()
+      light === 'green' && green()
+      light === 'yellow' && yellow()
+      resolve()
+    }, time)
+  })
+
+
+  const fn = () => {
+    亮灯(3000, 'red')
+      .then(() => void 亮灯(1000, 'green'))
+      .then(() => void 亮灯(2000, 'yellow'))
+      .then(() => void fn())
+  }
+
+  fn()
+</script>
