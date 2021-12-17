@@ -1,0 +1,28 @@
+<script>
+  function twoSearch(nums = [], target) {
+    // 左闭 右开区间
+    let l = 0, r = nums.length, m = 0
+    while (l < r) {
+      m = (l + r) >> 1
+      if (nums[m] > target) r = m
+      else if (nums[m] < target) l = m + 1
+      else return m
+    }
+
+    return -1
+  }
+</script>
+
+
+<script>
+  function twoSearch(nums = [], target) {
+    let l = 0, r = nums.length - 1, m
+    while (l <= r) {
+      m = (l + r) >> 1
+      if (nums[m] > target) r = m - 1
+      else if (nums[m] < target) l = m + 1
+      else return m
+    }
+    return -1
+  }
+</script>
