@@ -1,3 +1,0 @@
-## Web Worker
-## Service Worker
-

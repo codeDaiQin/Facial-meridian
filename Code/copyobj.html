@@ -1,0 +1,23 @@
+<script>
+  function copyObj(obj, map = new WeakMap()) {
+    if (map.has(obj)) return obj
+    const res = Array.isArray(obj) ? [] : {}
+    map.set(obj, res)
+    for (let i in obj) {
+      res[i] = typeof obj[i] === 'object' ? copyObj(obj[i], map) : obj[i]
+    }
+    return res
+  }
+
+  const test = {
+    name: 'mmc',
+    age: 16,
+    group: [1, 2, 3, 4],
+  }
+
+  console.log(test)
+  const copy = copyObj(test)
+  test.age = 1
+  test.group = 1
+  console.log(test, copy)
+</script>

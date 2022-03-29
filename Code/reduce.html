@@ -1,0 +1,9 @@
+<script>
+  Array.prototype.reduce1 = function (fn, init) {
+    let res = init || this[0]
+    for (let i = init ? 0 : 1; i < this.length; i++) {
+      fn(res, this[i], i, this)
+    }
+    return res
+  }
+</script>

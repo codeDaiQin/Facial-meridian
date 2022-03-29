@@ -1,0 +1,146 @@
+<script>
+  // 转换前：
+  const source = [
+    {
+      id: 1,
+      pid: 0,
+      name: 'body',
+    },
+    {
+      id: 2,
+      pid: 1,
+      name: 'title',
+    },
+    {
+      id: 3,
+      pid: 2,
+      name: 'div',
+    },
+    {
+      id: 4,
+      name: '444',
+    },
+  ]
+  // 转换为:
+  const tree = [
+    {
+      id: 1,
+      pid: 0,
+      name: 'body',
+      children: [
+        {
+          id: 2,
+          pid: 1,
+          name: 'title',
+          children: [
+            {
+              id: 3,
+              pid: 1,
+              name: 'div',
+            },
+          ],
+        },
+      ],
+    },
+  ]
+
+  function jsonToTree(data) {
+    const result = []
+    const map = {}
+    data.forEach((item) => (map[item.id] = item))
+    data.forEach((item) => {
+      const parent = map[item.pid]
+      if (parent) (parent.children || (parent.children = [])).push(item)
+      else result.push(item)
+    })
+    return result
+  }
+  console.log(jsonToTree(source), '===')
+  const json2tree = (arr) => {
+    const map = {}
+    const resulte = []
+    arr.forEach((item) => (map[item.id] = item))
+    arr.forEach((item) => {
+      const parent = item.pid
+      if (parent) (parent.children || (parent.children = [])).push(item)
+      else result.push(item)
+    })
+    return result
+  }
+
+  const tree2json = (arr) => {
+    var res = []
+    for (const item of arr) {
+      const { children, ...i } = item
+      if (children && children.length) {
+        res = res.concat(tree2json(children))
+      }
+      res.push(i)
+    }
+    return res
+  }
+
+  console.log(tree2json(tree))
+</script>
+
+<script>
+  function red() {
+    console.log('red')
+  }
+  function green() {
+    console.log('green')
+  }
+  function yellow() {
+    console.log('yellow')
+  }
+
+  const task = (time, color) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (color === 'red') red()
+        else if (color === 'green') green()
+        else if (color === 'yellow') yellow()
+        resolve()
+      }, time)
+    })
+  }
+
+  const fn = () =>
+    task(3000, 'red')
+      .then(() => task(2000, 'green'))
+      .then(() => task(1000, 'yellow'))
+      .then(fn)
+
+  // fn()
+</script>
+
+<script>
+  const json222tree = (arr) => {
+    const map = {},
+      result = []
+    arr.forEach((item) => (map[item.id] = item))
+    arr.forEach((item) => {
+      const parent = map[item.id]
+      if (parent) {
+        ;(parent.children = parent.children || []).push(item)
+      } else {
+        result.push(item)
+      }
+    })
+    return result
+  }
+
+  const tree22json = (arr) => {
+    let res = []
+    for (let i of arr) {
+      const { children, ...item } = i
+      if (children && children.length) {
+        res = res.concat(tree2json(children))
+      } else {
+        res.push(item)
+      }
+    }
+
+    return res
+  }
+</script>
