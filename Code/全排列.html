@@ -1,0 +1,25 @@
+<script>
+  function permute(nums) {
+    const res = [], path = []
+    fn()
+    return res
+
+    function fn(used = []) {
+      if (path.length === nums.length) {
+        console.log(path)
+        res.push(Array.from(path))
+        return
+      }
+      for (let i in nums) {
+        if (used[i]) continue
+        path.push(nums[i])
+        used[i] = true
+        fn(used)
+        used[i] = false
+        path.pop()
+      }
+    }
+  }
+
+  console.log(permute([1, 2, 3]))
+</script>

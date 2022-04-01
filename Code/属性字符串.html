@@ -1,0 +1,19 @@
+<script>
+  function strObj(obj, str) {
+    const arr = str.split('.')
+    for (let i of arr) {
+      obj = obj[i]
+    }
+    return obj
+  }
+
+  const obj = {
+    a: {
+      b: {
+        c: 1,
+      },
+    },
+  }
+
+  console.log(strObj(obj, 'a.b.c'))
+</script>

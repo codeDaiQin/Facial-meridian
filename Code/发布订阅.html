@@ -1,0 +1,15 @@
+<script>
+  class Vue {
+    constructor() {
+      this.events = {}
+    }
+    $emit(type, ...args) {
+      if (this.events[type]) {
+        this.events[type].forEach((fn) => fn.apply(this, args))
+      }
+    }
+    $on(type, callback) {
+      ;(this.events[type] || (this.events[type] = [])).push(callback)
+    }
+  }
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>p</p>
+    </div>
+  </body>
+  <script>
+    const div = document.getElementById('app')
+    const p = document.getElementsByTagName('p')[0]
+
+    div.addEventListener(
+      'click',
+      function (e) {
+        console.log(e, '===div===ture')
+      },
+      true
+    )
+
+    div.addEventListener('click', function (e) {
+      e.preventDefault()
+      console.log(e, '===div===false')
+    })
+
+    p.addEventListener(
+      'click',
+      function (e) {
+        console.log(e, '===p===ture')
+      },
+      true
+    )
+
+    p.addEventListener('click', function (e) {
+      console.log(e, '===p===false')
+    })
+  </script>
+</html>

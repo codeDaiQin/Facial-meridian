@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script>
+    // 通过属性字符串（如'a.b.c'）取对象的属性值
+
+    function rgb() {
+      //rgb颜色随机
+      var r = Math.floor(Math.random() * 256)
+      var g = Math.floor(Math.random() * 256)
+      var b = Math.floor(Math.random() * 256)
+      var rgb = '(' + r + ',' + g + ',' + b + ')'
+      return rgb
+    }
+
+    function color16() {
+      //十六进制颜色随机
+      var r = Math.floor(Math.random() * 256)
+      var g = Math.floor(Math.random() * 256)
+      var b = Math.floor(Math.random() * 256)
+      var color = '#' + r.toString(16) + g.toString(16) + b.toString(16)
+      return color
+    }
+    
+    const app = document.getElementById('app')
+    app.style.color = rgb()
+    app.innerHTML = color16()
+  </script>
+</html>

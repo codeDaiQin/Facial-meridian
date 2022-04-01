@@ -1,0 +1,8 @@
+<script>
+  function _setInterval(fn, time) {
+    return setTimeout(() => {
+      fn()
+      _setInterval(fn, time)
+    }, time)
+  }
+</script>

@@ -1,15 +1,30 @@
 <script>
-  const curry = (fn, ...args) =>
+  const curry1 = (fn, ...args) =>
     args.length >= fn.length
       ? fn(...args)
-      : (..._args) => curry(fn, ...args, ..._args)
+      : (..._args) => curry1(fn, ...args, ..._args)
+</script>
+<script>
+  function curry(fn, ...args) {
+    const curried =
+      args.length >= fn.length && fn.length !== 0
+        ? fn(...args)
+        : (..._args) => curry(fn, ...args, ..._args)
+    curried.toString = () => fn(...args)
+    return curried
+  }
 
+  function dynamicAdd() {
+    return [...arguments].reduce((prev, curr) => {
+      return prev + curr
+    }, 0)
+  }
   function add1(x, y, z) {
     return x + y + z
   }
-  const add = curry(add1)
-  console.log(add(1, 2, 3))
-  console.log(add(1)(2)(3))
-  console.log(add(1, 2)(3))
-  console.log(add(1)(2, 3))
+  const test = curry(add1)
+  console.log(test(1)(2)(3)) // 6
+  console.log(test(1, 2)(3))
+  var add = curry(dynamicAdd)
+  console.log(+add(1)(2)(3)(4)) // 10
 </script>

@@ -1,0 +1,23 @@
+<script>
+  function isRepeatStr(str) {
+    const l = str.length
+    for (let i = 1; i * 2 <= l; i++) {
+      if (l % i === 0) {
+        let flag = true
+        for (let j = i; j < l; j++) {
+          if (str[j] !== str[j - i]) {
+            flag = false
+            break
+          }
+        }
+        if (flag) return true
+      }
+    }
+    return false
+  }
+
+  console.log(isRepeatStr('ababab'))
+  console.log(isRepeatStr('abacbab'))
+  console.log(isRepeatStr('abacbab'))
+  console.log(isRepeatStr('aaa'))
+</script>

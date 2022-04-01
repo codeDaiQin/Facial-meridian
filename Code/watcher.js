@@ -11,23 +11,27 @@ class Vue {
   // 发布
   $emit(e) {
     if (this.subs[e]) {
-      this.subs[e].forEach(fn => { fn() })
+      this.subs[e].forEach((fn) => {
+        fn()
+      })
     }
+  }
+  $off(e, fn) {
+    if (Array.isArray(e)) {
+      for (let i of e) {
+        this.$off(i)
+      }
+    }
+    if (!this.subs[e]) return
+    if (!fn) this.subs[e] = null
   }
 }
 
-
 let vue = new Vue()
 vue.$on('hhh', () => {
-  console.log(666);
+  console.log(666)
 })
 vue.$emit('hhh')
-
-
-
-
-
-
 
 class MyVue {
   constructor() {
@@ -41,13 +45,15 @@ class MyVue {
   // 发布
   $emit(e) {
     if (this.subs[e]) {
-      this.subs[e].forEach(fn => fn())
+      this.subs[e].forEach((fn) => fn())
     }
   }
 }
 
 let myVue = new MyVue()
 
-myVue.$on('唱歌事件', () => { console.log('唱歌') })
+myVue.$on('唱歌事件', () => {
+  console.log('唱歌')
+})
 
 myVue.$emit('唱歌事件')

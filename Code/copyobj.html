@@ -15,9 +15,10 @@
     group: [1, 2, 3, 4],
   }
 
-  console.log(test)
   const copy = copyObj(test)
+  const pTest = { ...test }
   test.age = 1
+  copy.group = [1, 1]
   test.group = 1
-  console.log(test, copy)
+  console.log(test, copy, pTest)
 </script>

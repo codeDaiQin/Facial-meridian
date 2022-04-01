@@ -1,0 +1,19 @@
+<script>
+  function quickSort(arr) {
+    if (arr.length <= 1) return arr
+    const index = Math.floor(arr.length / 2)
+    const left = []
+    const right = []
+    const middle = arr.splice(index, 1)[0]
+    for (let i of arr) {
+      if (i > middle) right.push(i)
+      else left.push(i)
+    }
+
+    return [...quickSort(left), middle, ...quickSort(right)]
+  }
+
+  const arr = [2, 3, 1, 5, 6, 7, -4, 999]
+
+  console.log(quickSort(arr))
+</script>
